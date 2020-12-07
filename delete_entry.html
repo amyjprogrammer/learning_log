@@ -1,0 +1,17 @@
+{% extends 'learning_logs/base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <p><a href="{% url 'learning_logs:topics' %}">Return to main menu</a></p>
+{% endblock page_header %}
+
+{% block content %}
+  <h3>Delete your entry: '{{ entry }}'</h3>
+  <form action="{% url 'learning_logs:delete_entry' entry.id %}" method="post">
+    {% csrf_token %}
+
+      <button name="submit" class="btn btn-danger">Delete</button>
+
+  </form>
+
+{% endblock content%}
